@@ -1,0 +1,15 @@
+{
+  "plugins": ["a-plugin"],
+  "overrides": [
+    {
+      "files": ["*.md"],
+      "processor": "a-plugin/markdown"
+    },
+    {
+      "files": ["**/*.md/*.ts"],
+      "rules": {
+        "strict": "off"
+      }
+    }
+  ]
+}

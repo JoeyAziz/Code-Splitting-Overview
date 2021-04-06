@@ -1,0 +1,24 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.23.0",
+    "eslint-config-prettier": "^8.1.0",
+    "parcel-bundler": "^1.12.5",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "lorem-ipsum": "^2.0.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
