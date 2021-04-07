@@ -1,24 +1,41 @@
-import React, { useState, lazy, Suspense } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Title } from "./title";
 import { slowImport } from "./helpers";
+// import Description from './description'
+import Loadable from 'react-loadable';
 
-const Description = lazy(() => slowImport(import("./description"), 1000));
+const Loading = ()=> 
+  <h1>
+    Loading..
+  </h1>
+
+
+const Description = Loadable({
+  loader: ()=> slowImport( import('./description'), 1000) ,
+  loading: Loading
+})
+
 
 const App = () => {
-  const [carEnabled, setCarEnabled] = useState(false);
-  const showImage = () => {
-    setCarEnabled(!carEnabled);
+  const [carInfo, setCarInfo] = useState(false);
+
+  const showInfo = () => {
+    setCarInfo(!carInfo);
   };
+
   return (
-    <main>
-      <Title />
-      <img src={require("./hummer.png")} width="700" height="500" />
-      <button onClick={showImage}>Show Info</button>
-      <Suspense fallback={<h1>Loading Description...</h1>}>
-        {carEnabled && <Description />}
-      </Suspense>
-    </main>
+      <main>
+        <Title />
+        <img src={require("./hummer.png")} width="700" height="500" />
+
+        <button onClick={showInfo}> Show Info </button>
+        {
+          carInfo &&
+          <Description />
+        
+        }
+      </main>
   );
 };
 
